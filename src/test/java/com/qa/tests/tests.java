@@ -14,12 +14,15 @@ public class tests
 	public void getSpecifiedSurname()
 	{
 		accountManager.addAccount("Aldi", "Essentials", 14);
-		accountManager.addAccount("Aldi", "Value", 15);
+		accountManager.addAccount("Arnie", "Value", 15);
 		accountManager.addAccount("Aldi", "Gin", 16);
-		accountManager.addAccount("Aldi", "ReadyMeal", 17);
+		accountManager.addAccount("Jim", "ReadyMeal", 17);
 		accountManager.addAccount("Aldi", "OwnBrand", 18);
+		accountManager.addAccount("Ross", "OwnBrand", 19);
+		accountManager.addAccount("Ross", "Arsington", 20);
 		
-		assertEquals(5, accountManager.getInstancesOfForename("Aldi"));
+		
+		assertEquals("Arnie : 1;Ross : 2;Aldi : 3;Jim : 1;", accountManager.getInstancesOfForename());
 	}
 	
 }

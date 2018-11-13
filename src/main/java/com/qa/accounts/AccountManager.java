@@ -1,5 +1,9 @@
 package com.qa.accounts;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -48,6 +52,37 @@ public class AccountManager
 		{
 			throw new NullPointerException();
 		}
+	}
+	
+	public String getInstancesOfForename()
+	{
+		HashMap<String, Integer> instancesOfNameMap = new HashMap<String, Integer>();
+		Iterator it = hmap.entrySet().iterator();
+		
+		while(it.hasNext())
+		{
+			Map.Entry pair = (Map.Entry)it.next();
+			Account account = (Account)pair.getValue();	
+			
+			if(instancesOfNameMap.containsKey(account.getForename()))
+			{
+				instancesOfNameMap.put(account.getForename(), instancesOfNameMap.get(account.getForename()) + 1);
+			}
+			else
+			{
+				instancesOfNameMap.put(account.getForename(), 1);
+			}		
+		}
+		
+		String returnString = "";
+		it = instancesOfNameMap.entrySet().iterator();
+		while(it.hasNext())
+		{
+			Map.Entry pair = (Map.Entry)it.next();
+			returnString += new String(pair.getKey() + " : " + pair.getValue() + ";");
+		}
+		System.out.println(returnString);
+		return returnString;
 	}
 	
 	public void printAccountsJSON()
