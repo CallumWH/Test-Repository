@@ -6,6 +6,7 @@ public class main {
 		Messager messager = new Messager();
 		
 		messager.PrintMessage("Goodbye Cruel World");
+		messager.PrintMessage("I'm terrible at this");
 	}
 
 }
