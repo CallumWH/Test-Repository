@@ -54,7 +54,7 @@ public class AccountManager
 		}
 	}
 	
-	public String getInstancesOfForename()
+	public String getInstancesOfForenames()
 	{
 		HashMap<String, Integer> instancesOfNameMap = new HashMap<String, Integer>();
 		Iterator it = hmap.entrySet().iterator();
@@ -81,13 +81,17 @@ public class AccountManager
 			Map.Entry pair = (Map.Entry)it.next();
 			returnString += new String(pair.getKey() + " : " + pair.getValue() + ";");
 		}
-		System.out.println(returnString);
 		return returnString;
 	}
 	
-	public void printAccountsJSON()
+	public int getInstanceOfSpecifiedForename(String name)
+	{
+		return (int)hmap.values().stream().filter(account -> account.getForename().equals(name)).count();
+	}
+	
+	public String printAccountsJSON()
 	{
 		JSONObject JsonObject = new JSONObject(hmap);
-		System.out.print(JsonObject);
+		return JsonObject.toString();
 	}
 }
