@@ -3,10 +3,11 @@ public class main {
 
 	public static void main(String[] args) 
 	{
-		Messager messager = new Messager();
+		AccountManager accountManager = AccountManager.createAccountManager();
 		
-		messager.PrintMessage("Goodbye Cruel World");
-		messager.PrintMessage("I'm terrible at this");
+		accountManager.addAccount(70, "Ross", "GEORGE");
+		
+		accountManager.printAccountsJSON();
 	}
 
 }

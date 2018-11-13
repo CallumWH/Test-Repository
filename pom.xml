@@ -3,4 +3,14 @@
   <groupId>com.qa.BranchTest</groupId>
   <artifactId>BranchTest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  
+  	<!-- https://mvnrepository.com/artifact/org.json/json -->
+	<dependency>
+	    <groupId>org.json</groupId>
+	    <artifactId>json</artifactId>
+	    <version>20180813</version>
+	</dependency>
+
+  </dependencies>
 </project>
