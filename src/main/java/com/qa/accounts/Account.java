@@ -1,3 +1,4 @@
+package com.qa.accounts;
 
 public class Account
 {

@@ -1,3 +1,4 @@
+package com.qa.accounts;
 import java.util.HashMap;
 
 import org.json.JSONObject;
@@ -9,12 +10,9 @@ public class AccountManager
 	
 	private AccountManager()
 	{
-		hmap.put(25, new Account("firstName", "secondName", 25));
-		hmap.put(21, new Account("Tux", "Deep", 21));
-		hmap.put(14, new Account("Aldi", "Essentials", 14));
 	}
 	
-	static public AccountManager createAccountManager()
+	static public AccountManager getAccountManager()
 	{
 		if(accountManager != null)
 		{
@@ -32,7 +30,7 @@ public class AccountManager
 		hmap.put(accountToAdd.getAccountNumber(), accountToAdd);
 	}
 	
-	public void addAccount(int accountNumber, String forename, String surname)
+	public void addAccount(String forename, String surname, int accountNumber)
 	{
 		Account accountToAdd = new Account(forename, surname, accountNumber);
 		hmap.put(accountToAdd.getAccountNumber(), accountToAdd);
@@ -54,6 +52,7 @@ public class AccountManager
 	
 	public void printAccountsJSON()
 	{
-		System.out.print(new JSONObject(hmap));
+		JSONObject JsonObject = new JSONObject(hmap);
+		System.out.print(JsonObject);
 	}
 }
